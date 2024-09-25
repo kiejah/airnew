@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PropertyApiController;
+use App\Http\Controllers\AuthApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/properties',[PropertyApiController::class,'index']);
+Route::get('/properties/{id}',[PropertyApiController::class,'show']);
+Route::get('/properties/search/{name}',[PropertyApiController::class,'search']);
+
+Route::group(['middleware'=>['auth:sanctum']],function(){
+    Route::post('/logout',[AuthApiController::class,'logout']);  
 });
