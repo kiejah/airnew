@@ -35,4 +35,10 @@ class PropertyApiController extends Controller
                                     ->orWhere('description','like','%'.$name.'%')
                                     ->get();
     }
+    public function units(string $p_id)
+    {
+        //
+        return PropertyUnit::where('property_id',$p_id)->get();
+
+    }
 }

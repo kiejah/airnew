@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+//to access this routes prepend api e.g. http://127.0.0.1:8000/api/properties
 Route::get('/properties',[PropertyApiController::class,'index']);
 Route::get('/properties/{id}',[PropertyApiController::class,'show']);
 Route::get('/properties/search/{name}',[PropertyApiController::class,'search']);
+Route::get('/units/{p_id}',[PropertyApiController::class,'units']);
 
 Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::post('/logout',[AuthApiController::class,'logout']);  
