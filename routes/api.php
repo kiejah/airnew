@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/properties',[PropertyApiController::class,'index']);
 Route::get('/properties/{id}',[PropertyApiController::class,'show']);
 Route::get('/properties/search/{name}',[PropertyApiController::class,'search']);
-Route::get('/units/{p_id}',[PropertyApiController::class,'units']);
+ 
 
 Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::post('/logout',[AuthApiController::class,'logout']);  

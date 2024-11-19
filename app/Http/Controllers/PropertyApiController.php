@@ -17,7 +17,7 @@ class PropertyApiController extends Controller
     public function index()
     {
         //
-        return Property::all();
+        return Property::with('propUnitImages')->with('units')->get();
     }
     public function show(string $id)
     {

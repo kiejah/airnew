@@ -70,6 +70,10 @@ class Property extends Model
     {
         return $this->hasMany('App\Models\Booking','property_id','id');
     }
+    public function propUnitImages()
+    {
+        return $this->hasMany('App\Models\PropertyUnitImage','property_id','id');
+    }
     public function scopeFilter($query, array $filters){
         if ($filters['location'] ?? false){
             $query->where('location_id','like','%'.request('location').'%');
