@@ -17,12 +17,12 @@ class PropertyApiController extends Controller
     public function index()
     {
         //
-        return Property::with('propUnitImages')->with('units')->get();
+        return Property::with('thumbnail')->with('propertyImages')->with('propUnitImages')->with('units')->get();
     }
     public function show(string $id)
     {
         //
-        return Property::find($id);
+        return Property::with('thumbnail')->with('propertyImages')->with('propUnitImages')->with('units')->where('id',$id)->get();
 
     }
     public function search(string $name)
